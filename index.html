@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Rocky ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,#ff758c,#ff7eb3,#8e2de2);display:flex;justify-content:center;align-items:center;font-family:'Poppins',sans-serif;overflow-x:hidden;padding:20px}
+.hearts{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.heart{position:absolute;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.card{background:rgba(255,255,255,0.95);max-width:380px;width:100%;border-radius:30px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,0.2);text-align:center;position:relative;z-index:2;backdrop-filter:blur(10px)}
+.photo{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(45deg,#ff758c,#8e2de2);display:flex;justify-content:center;align-items:center;font-size:50px;border:4px solid white;box-shadow:0 10px 20px rgba(0,0,0,0.1)}
+h1{font-family:'Great Vibes',cursive;font-size:42px;color:#e91e63;margin:10px 0}
+.pesan{color:#555;line-height:1.8;font-size:14px;margin:20px 0;text-align:left;background:#fff5f8;padding:15px;border-radius:15px;border-left:4px solid #e91e63}
+.btn{background:linear-gradient(45deg,#e91e63,#8e2de2);color:white;border:none;padding:14px 28px;border-radius:50px;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 10px 20px rgba(233,30,99,0.3);transition:0.3s;width:100%;margin-top:10px}
+.btn:active{transform:scale(0.95)}
+.footer{margin-top:20px;font-size:12px;color:#999}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<div class="card">
+<div class="photo">❤️</div>
+<h1>Untuk Rocky</h1>
+<p style="color:#e91e63;font-weight:600;">Dari seseorang yang sayang kamu</p>
+<div class="pesan">
+Hai Rocky sayang...<br><br>
+Aku bikin website kecil ini khusus buat kamu. Mungkin gak seindah kamu, tapi ini tulus dari hati aku.<br><br>
+Setiap detik sama kamu itu berharga banget buat aku. Senyum kamu, tawa kamu, semua tentang kamu bikin hari aku lebih indah.<br><br>
+Terima kasih udah hadir di hidup aku. Aku sayang kamu lebih dari kata-kata bisa jelasin. ❤️<br><br>
+Selamanya kamu di hati aku.
+</div>
+<button class="btn" onclick="kirimCinta()">Klik untuk peluk virtual 🤗</button>
+<button class="btn" style="background:white;color:#e91e63;border:2px solid #e91e63;" onclick="alert('Aku sayang kamu Rocky! ❤️❤️❤️')">Kirim I Love You 💌</button>
+<div class="footer">Dibuat dengan sepenuh hati • 2026</div>
+</div>
+<script>
+function createHeart(){const h=document.createElement('div');h.className='heart';h.innerHTML='❤️';h.style.left=Math.random()*100+'vw';h.style.fontSize=(15+Math.random()*20)+'px';h.style.animationDuration=(3+Math.random()*4)+'s';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),7000)}
+setInterval(createHeart,300);
+function kirimCinta(){for(let i=0;i<30;i++){setTimeout(createHeart,i*80)} alert('Peluk virtual terkirim untuk Rocky! 🤗❤️\n\nAku peluk kamu erat banget dari sini!');}
+</script>
+</body>
+</html>
