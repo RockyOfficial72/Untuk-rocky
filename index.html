@@ -28,33 +28,12 @@ body{font-family:'Poppins',sans-serif;background:#0f0f1e;overflow-x:hidden;color
 .envelope.open:before{transform:rotateX(180deg)}
 .letter{position:absolute;top:5px;left:10px;right:10px;height:70px;background:white;border-radius:6px;color:#333;padding:10px;font-size:0.7rem;text-align:center;transition:0.5s;z-index:1}
 .envelope.open .letter{transform:translateY(-60px);height:110px}
+.music-btn{position:fixed;bottom:25px;right:25px;z-index:99;background:linear-gradient(135deg,#ff006a,#ff4081);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 25px rgba(255,0,106,0.6);font-size:24px;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas><div class="bg"></div><div class="hearts" id="hearts"></div>
-<div class="hero"><h1>Rocky</h1><p style="letter-spacing:3px;opacity:0.6;margin-top:10px">INI SEMUA TENTANG KAMU</p><p style="margin-top:20px">💜<br>↓ scroll ↓</p></div>
+<div class="hero"><h1>Rocky</h1><p style="letter-spacing:3px;opacity:0.6;margin-top:10px">INI SEMUA TENTANG KAMU</p><p style="margin-top:20px;animation:pulse 1.5s infinite">💜<br>↓ scroll ↓</p></div>
 <div class="container">
-<div class="card"><h2 style="font-family:'Great Vibes',cursive;font-size:2.5rem;text-align:center;color:#ffa6c9;margin-bottom:15px">Hai Sayangku...</h2><div class="typewriter" id="typewriter"></div></div>
-<div class="card"><h3 style="text-align:center;margin-bottom:15px">Seberapa sayang aku? 📊</h3><div class="counter"><div><h3 id="c1">0</h3><p style="font-size:0.7rem;opacity:0.6">HARI MIKIRIN<br>KAMU</p></div><div><h3 id="c2">0</h3><p style="font-size:0.7rem;opacity:0.6">KALI KANGEN<br>SEHARI</p></div><div><h3 id="c3">0%</h3><p style="font-size:0.7rem;opacity:0.6">BUAT<br>KAMU</p></div></div></div>
-<div class="card" style="text-align:center"><h3>Ada surat rahasia 💌</h3><p style="font-size:0.8rem;opacity:0.6;margin:10px 0">Klik amplopnya ya</p><div class="envelope" id="env" onclick="this.classList.toggle('open')"><div class="letter"><br><b>AKU SAYANG BANGET SAMA KAMU ROCKY!</b><br><br>Jangan pernah ninggalin aku ya ❤️</div></div></div>
-<div class="card"><button class="btn btn-p" onclick="hug()">Kirim Pelukan Erat 🤗💕</button><button class="btn btn-p" style="background:linear-gradient(135deg,#a855f7,#ff6b9d)" onclick="kiss()">Kirim Ciuman 😘</button><button class="btn btn-o" onclick="sendLove()">Kirim I LOVE YOU 💌</button><p style="text-align:center;margin-top:20px;font-size:0.7rem;opacity:0.4">Dibuat dengan 1000% cinta • Hanya untuk Rocky</p></div>
-</div>
-<script>
-const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');canvas.width=innerWidth;canvas.height=innerHeight;let dots=[];for(let i=0;i<50;i++)dots.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+0.5,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3});function anim(){ctx.clearRect(0,0,canvas.width,canvas.height);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>canvas.width)d.vx*=-1;if(d.y<0||d.y>canvas.height)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(255,107,157,0.3)';ctx.fill()});requestAnimationFrame(anim)}anim();
-const text=`Aku bikin website ini khusus buat kamu.
-
-Mungkin gak seindah kamu, tapi ini tulus dari hati aku.
-
-Setiap detik sama kamu itu berharga banget buat aku. Senyum kamu, tawa kamu, semua tentang kamu bikin hari aku lebih indah.
-
-Terima kasih udah hadir di hidup aku. Aku sayang kamu lebih dari kata-kata bisa jelasin.
-
-Selamanya kamu di hati aku. ❤️`;let i=0;function type(){if(i<text.length){document.getElementById('typewriter').innerHTML+=text.charAt(i)=='\n'?'<br><br>':text.charAt(i);i++;setTimeout(type,30)}}setTimeout(type,500);
-function countUp(id,target){let c=0;let el=document.getElementById(id);let it=setInterval(()=>{c+=3;if(c>=target){c=target;clearInterval(it)}el.textContent=c+(id=='c3'?'%':'')},20)}setTimeout(()=>{countUp('c1',365);countUp('c2',99);countUp('c3',100)},1500);
-function createHeart(e){const h=document.createElement('div');h.className='hf';h.textContent=e||'❤️';h.style.left=Math.random()*100+'vw';h.style.fontSize=(Math.random()*20+15)+'px';h.style.animationDuration=(Math.random()*3+3)+'s';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),6000)}setInterval(()=>createHeart(),300);
-function hug(){for(let i=0;i<25;i++)setTimeout(()=>createHeart('🤗'),i*80);alert('🤗 Pelukan erat udah terkirim ke Rocky!')}
-function kiss(){for(let i=0;i<25;i++)setTimeout(()=>createHeart('😘'),i*80);alert('😘 Muahhh... ciuman buat Rocky!')}
-function sendLove(){for(let i=0;i<35;i++)setTimeout(()=>createHeart('💌'),i*60);const t=encodeURIComponent('Aku sayang kamu Rocky! ❤️ Dari website bucin kamu');window.open('https://wa.me/?text='+t,'_blank')}
-</script>
-</body>
-</html>
+<div class="card"><h2 style="font-family:'Great Vibes',cursive;font-size:2.5rem;text-align:center;color:#ffa6c9;margin-bottom:15px">Hai Sayangku...</h2><div class="typewriter" id="typewriter
