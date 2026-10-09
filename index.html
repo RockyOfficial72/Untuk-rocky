@@ -5,12 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Untuk Rocky ❤️</title>
 <style>
-body{margin:0;background:#0f0f1e;color:#fff;font-family:sans-serif;text-align:center;overflow-x:hidden}
+body{margin:0;background:#0f0f1e;color:#fff;font-family:sans-serif;text-align:center}
 .hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e,#2d1b4e)}
 h1{font-size:4rem;color:#ff8fab;margin:0;font-family:cursive;text-shadow:0 0 20px #ff006a}
 .card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:20px;padding:25px;margin:20px}
-#musicBtn{position:fixed;bottom:25px;right:25px;width:65px;height:65px;background:linear-gradient(135deg,#ff006a,#ff8fab);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:9999;box-shadow:0 0 20px #ff006a;cursor:pointer;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+#musicBtn{position:fixed;bottom:25px;right:25px;width:65px;height:65px;background:linear-gradient(135deg,#ff006a,#ff8fab);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:9999;box-shadow:0 0 20px #ff006a;cursor:pointer}
 </style>
 </head>
 <body>
@@ -19,27 +18,16 @@ h1{font-size:4rem;color:#ff8fab;margin:0;font-family:cursive;text-shadow:0 0 20p
 <p style="letter-spacing:5px;opacity:0.7">INI SEMUA TENTANG KAMU</p>
 <p>💜<br>↓ scroll ↓</p>
 </div>
-
 <div class="card">
-<h2 style="color:#ff8fab;font-family:cursive;font-size:2.5rem">Hai Sayangku...</h2>
-<p>Aku bikin website ini khusus buat kamu. Ada musiknya lho, klik tombol musik di kanan bawah ya! 🎵</p>
+<h2 style="color:#ff8fab;font-family:cursive">Hai Sayangku...</h2>
+<p>Aku bikin website ini khusus buat kamu. Klik tombol musik ya! 🎵</p>
 </div>
-
 <div class="card">
 <p>Aku sayang kamu lebih dari apapun ❤️</p>
 </div>
-
-<audio id="bgMusic" loop preload="auto">
-<source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a650f6.mp3?filename=romantic-piano-115048.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+<source src="https://cdn.pixabay.com/audio/2022/10/30/audio_8ef11ccf10.mp3" type="audio/mpeg">
 </audio>
-
-<div id="musicBtn" onclick="var a=document.getElementById('bgMusic'); a.paused ? a.play() : a.pause()">🎵</div>
-
-<script>
-document.addEventListener('click', function once(){
-  document.getElementById('bgMusic').play().catch(()=>{});
-  document.removeEventListener('click', once);
-});
-</script>
+<div id="musicBtn" onclick="let a=document.getElementById('bgMusic'); if(a.paused){a.volume=1; a.play(); this.innerText='⏸️'}else{a.pause(); this.innerText='🎵'}">🎵</div>
 </body>
 </html>
