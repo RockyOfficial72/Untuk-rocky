@@ -5,29 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Untuk Rocky ❤️</title>
 <style>
-body{margin:0;background:#0f0f1e;color:#fff;font-family:sans-serif;text-align:center}
-.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e,#2d1b4e)}
-h1{font-size:4rem;color:#ff8fab;margin:0;font-family:cursive;text-shadow:0 0 20px #ff006a}
-.card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:20px;padding:25px;margin:20px}
-#musicBtn{position:fixed;bottom:25px;right:25px;width:65px;height:65px;background:linear-gradient(135deg,#ff006a,#ff8fab);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:9999;box-shadow:0 0 20px #ff006a;cursor:pointer}
+body{margin:0;background:#1a0a2e;color:#fff;font-family:system-ui;text-align:center}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle,#2d1b4e,#0a0a1a)}
+.hero h1{font-size:75px;color:#ff8fab;margin:0;text-shadow:0 0 30px #ff006a;font-family:cursive}
+.card{max-width:550px;margin:30px auto;background:rgba(255,255,255,.08);border-radius:20px;padding:25px;border:1px solid #ff8fab44}
+#musicBtn{position:fixed;bottom:20px;right:20px;width:70px;height:70px;background:#ff006a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px;z-index:999;box-shadow:0 0 20px #ff006a;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="hero">
 <h1>Rocky</h1>
-<p style="letter-spacing:5px;opacity:0.7">INI SEMUA TENTANG KAMU</p>
-<p>💜<br>↓ scroll ↓</p>
+<p style="letter-spacing:5px;opacity:.7">INI SEMUA TENTANG KAMU</p>
+<p style="margin-top:30px">💜 Tap tombol musik ya</p>
 </div>
-<div class="card">
-<h2 style="color:#ff8fab;font-family:cursive">Hai Sayangku...</h2>
-<p>Aku bikin website ini khusus buat kamu. Klik tombol musik ya! 🎵</p>
-</div>
-<div class="card">
-<p>Aku sayang kamu lebih dari apapun ❤️</p>
-</div>
-<audio id="bgMusic" loop>
-<source src="https://cdn.pixabay.com/audio/2022/10/30/audio_8ef11ccf10.mp3" type="audio/mpeg">
-</audio>
-<div id="musicBtn" onclick="let a=document.getElementById('bgMusic'); if(a.paused){a.volume=1; a.play(); this.innerText='⏸️'}else{a.pause(); this.innerText='🎵'}">🎵</div>
+<div class="card"><h2 style="color:#ff8fab">Hai Sayang...</h2><p>Website ini aku bikin khusus buat kamu. Tap tombol 🎵 ya</p></div>
+<audio id="musik" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a650f3.mp3" type="audio/mpeg"></audio>
+<div id="musicBtn">🎵</div>
+<script>
+const audio=document.getElementById('musik');const btn=document.getElementById('musicBtn');
+btn.onclick=()=>{audio.volume=1;audio.play().then(()=>{btn.textContent='❤️'}).catch(()=>{alert('Gedein volume HP ya!')})};
+</script>
 </body>
 </html>
